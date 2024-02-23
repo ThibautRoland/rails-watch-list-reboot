@@ -3,6 +3,9 @@
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
         <div class="card my-2 p-3">
+          <% if list.photo.attached? %>
+            <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
           <p><%= list.name %></p>
         </div>
       <% end %>
